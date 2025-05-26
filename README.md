@@ -13,10 +13,10 @@ AstroDashboard est un tableau de bord web permettant de suivre les astronautes a
 ## Captures d'écran 📸
 
 | Onglet Astronautes                                  | Onglet Vaisseaux                                   | Onglet Suivi Satellites (Vue Globale)               |
-| :--------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
-| ![Onglet Astronautes](01.png)                        | ![Onglet Vaisseaux](02.png)                         | ![Onglet Suivi Satellites Vue Globale](03.png)        |
-| **Suivi Satellite Actif (ISS)** | **Clé API N2YO (Exemple)** | **Exemple d'erreur API (Timeout Open Notify)** |
-| ![Suivi Satellite Actif ISS](04.jpg)                 | ![Clé API N2YO Exemple](API%20Key%20N2YO.png)        | ![Exemple Erreur API Timeout Open Notify](API%20timeout.png) |
+| :-------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
+| ![Onglet Astronautes](https://github.com/deuza/astrodashboard/releases/download/v0.0.1/01.png)                        | ![Onglet Vaisseaux](https://github.com/deuza/astrodashboard/releases/download/v0.0.1/02.png)                         | ![Onglet Suivi Satellites Vue Globale](https://github.com/deuza/astrodashboard/releases/download/v0.0.1/03.png)        |
+| Suivi Satellite Actif (ISS) | More stuff puis API ACCESS | Erreur timeout d'une API faites un refresh |
+| ![Suivi Satellite Actif ISS](https://github.com/deuza/astrodashboard/releases/download/v0.0.1/04.png)  |  ![More stuff puis API ACCESS](https://github.com/deuza/astrodashboard/releases/download/v0.0.1/API.Key.N2YO.png) | ![Erreur timeout d'une API, refresh](https://github.com/deuza/astrodashboard/releases/download/v0.0.1/05.png) |
 
 ## Fonctionnalités ✨
 
