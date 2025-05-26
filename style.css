@@ -1,0 +1,184 @@
+/* Fichier: style.css (Modifié pour layout et fond) */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #0a0a0a; /* Fond noir */
+    color: #ffffff;
+    padding: 0; /* Retirer le padding du body */
+    margin: 0;
+    min-height: 100vh; /* S'assurer que le body couvre au moins 100% de la hauteur de la vue */
+    display: flex; /* Utiliser flexbox pour centrer le contenu principal verticalement si besoin, ou juste assurer que min-height fonctionne */
+    flex-direction: column; /* Empiler les éléments */
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto; /* Centrer horizontalement */
+    padding: 20px;
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    flex-grow: 1; /* Permettre au conteneur principal de prendre l'espace disponible */
+     display: flex; /* Utiliser flexbox pour le contenu interne (tabs + tabcontent) */
+     flex-direction: column;
+     align-items: center; /* Centrer les enfants flexbox (tabs et content) horizontalement */
+}
+
+header {
+    margin-bottom: 20px; /* Ajouter un espace après l'en-tête */
+}
+
+header h1 {
+    color: #ffcc00;
+    margin-bottom: 5px;
+}
+
+header p {
+    margin-top: 5px;
+    color: #cccccc;
+}
+
+.tab {
+    /* overflow: hidden; /* Retiré */
+    border: 1px solid #333;
+    background-color: #222;
+    margin-bottom: 20px; /* Espace entre les onglets et le contenu */
+    border-radius: 5px;
+    width: 100%; /* Permettre aux onglets de prendre toute la largeur du conteneur parent */
+    display: flex; /* Utiliser flexbox pour les boutons */
+    justify-content: center; /* Centrer les boutons à l'intérieur */
+    flex-wrap: wrap; /* Permettre aux boutons de passer à la ligne si l'écran est étroit */
+}
+
+.tab button {
+    background-color: inherit;
+    /* float: left; /* Retiré */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #ffffff;
+    flex-grow: 1; /* Permettre aux boutons de s'étirer si nécessaire (optionnel) */
+    text-align: center; /* Centrer le texte dans les boutons */
+    min-width: 100px; /* Largeur minimale pour éviter qu'ils ne soient trop petits */
+}
+
+.tab button:hover {
+    background-color: #444;
+}
+
+.tab button.active {
+    background-color: #ffcc00;
+    color: #111;
+}
+
+.tabcontent {
+    padding: 6px 12px; /* Ajusté pour s'aligner visuellement */
+    border: 1px solid #333;
+    border-top: none;
+    display: none;
+    animation: fadeEffect 1s;
+    background-color: #1a1a1a;
+    border-radius: 0 0 10px 10px;
+    width: 100%; /* Adapter la largeur au conteneur */
+    box-sizing: border-box; /* Inclure padding et border dans la largeur */
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 20px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+th {
+    background-color: #333;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+tr:hover {
+    background-color: #3a3a3a;
+}
+
+
+a, a:visited, a:hover, a:active {
+    color: #ffcc00 !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+.nasa-logo {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+/* #loading { /* Retiré */
+/* } */
+
+#content {
+    /* display: none; /* Sera display: block par défaut via ce CSS */
+    width: 100%; /* Adapter la largeur */
+}
+
+/* Styles spécifiques pour les boutons radio et la carte dans l'onglet de suivi */
+.satellite-selector {
+     margin: 20px 0;
+     width: 100%; /* Adapter la largeur */
+}
+ .satellite-selector p {
+     margin-bottom: 10px;
+ }
+ .satellite-selector label {
+     margin-right: 15px;
+     cursor: pointer;
+     color: #cccccc;
+ }
+ .satellite-selector label input[type="radio"] {
+     margin-right: 5px;
+ }
+ .satellite-selector label:hover {
+     color: #ffcc00;
+ }
+ .satellite-selector label input[type="radio"]:checked + span {
+     color: #ffcc00;
+     font-weight: bold;
+ }
+
+#mapid {
+    height: 400px;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+
+footer {
+    margin-top: 30px;
+    padding: 20px; /* Ajouter du padding au footer */
+    font-size: 14px;
+    color: #888;
+    width: 100%; /* Assurer que le footer prend toute la largeur */
+    box-sizing: border-box; /* Inclure padding dans la largeur */
+    /* text-align: center; /* Déjà fait par body, mais pour être sûr */
+}
