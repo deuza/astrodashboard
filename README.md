@@ -72,7 +72,7 @@ Déployez les fichiers suivants dans le répertoire de votre serveur web (par ex
 
 Une fois les dépendances installées, la clé API configurée et les fichiers en place, accédez à `index.php` via votre navigateur.
 
-Exemple : `http://localhost/AstroDashboard/` ou `http://VOTRE_ADRESSE_IP/AstroDashboard/`
+Exemple : `http://localhost/astrodashboard/` ou `http://VOTRE_ADRESSE_IP/astrodashboard/`
 
 ## Satellites suivis 🛰️
 
@@ -85,6 +85,8 @@ Par défaut, le tableau de bord est configuré pour suivre les satellites suivan
 Vous pouvez modifier cette liste dans les fichiers `get_satellite_position.php` (pour la validation côté serveur) et `index.php` (pour l'affichage initial et les requêtes).
 
 ## Erreurs 🥷
+
+![Erreur timeout d'une API, refresh](https://github.com/deuza/astrodashboard/releases/download/v0.0.1/05.png)
 
 Parfois vous pouvez avoir une erreur liée à une réponse trop lente des sites distribuant les données.   
 Il vous suffit de raffraichir la page pour régler le problème, si ce comportement est systèmatique pas la peine de tabasser le bouton refresh :)
