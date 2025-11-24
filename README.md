@@ -1,11 +1,10 @@
 ![GitHub release](https://img.shields.io/github/v/release/DeuZa/astrodashboard?label=release&style=plastic)
+![GitHub Release Date](https://img.shields.io/github/release-date/deuza/astrodashboard)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/deuza/astrodashboard)
 [![GitHub last commit](https://img.shields.io/github/last-commit/DeuZa/astrodashboard?style=plastic)](https://github.com/DeuZa/WMT/commits/main)
 ![Status](https://img.shields.io/badge/stability-solid-green?style=plastic)
 [![License: CC0](https://img.shields.io/badge/license-CC0_1.0-lightgrey.svg?style=plastic)](https://creativecommons.org/publicdomain/zero/1.0/)
-![Hack The Planet](https://img.shields.io/badge/hack-the--planet-black?style=flat-square\&logo=gnu\&logoColor=white)
 ![Built With Love](https://img.shields.io/badge/built%20with-%E2%9D%A4%20by%20DeuZa-red?style=plastic)  
-![GitHub Release Date](https://img.shields.io/github/release-date/deuza/freesms)
 
 # AstroDashboard 🚀
 
