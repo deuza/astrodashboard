@@ -14,8 +14,11 @@ $satellitesToTrack = [ // Satellites à suivre {Nom Affiché => ID N2YO}
 	'Hubble' => 20580 // Hubble Space Telescope
 ];
 
-// --- Configuration Open Notify ---
-$openNotifyAstrosUrl = "http://api.open-notify.org/astros.json";
+// --- Configuration source astronautes ---
+// L'API open-notify.org est non maintenue (donnees figees a 2024).
+// On utilise un fichier JSON local maintenu manuellement (cf. README_astros.md).
+// Format compatible avec open-notify (drop-in replacement) + champs additionnels.
+$astrosJsonPath = __DIR__ . '/astros.json';
 
 
 // --- Fonction Helper pour appels cURL ---
@@ -113,19 +116,30 @@ if (!$n2yo_api_key_error) {
   }
 }
 
-// --- Récupérer les données astronautes (Open Notify) ---
-$open_notify_result = fetchDataWithCurl($openNotifyAstrosUrl);
-
+// --- Recuperer les donnees astronautes (fichier JSON local) ---
 $astronautes = [];
 $nombre_astronautes = 0;
-$open_notify_error = false;
+$astros_updated = null;
+$open_notify_error = false; // nom de variable conserve pour compatibilite avec le reste du code
 
-if (isset($open_notify_result['data']) && $open_notify_result['data']['message'] === "success") {
-  $astronautes = $open_notify_result['data']['people'];
-  $nombre_astronautes = $open_notify_result['data']['number'];
-} else {
+if (!is_readable($astrosJsonPath)) {
   $open_notify_error = true;
-  error_log("Failed Open Notify fetch. Result: " . print_r($open_notify_result, true));
+  error_log("Fichier astros.json introuvable ou illisible: " . $astrosJsonPath);
+} else {
+  $astros_raw = @file_get_contents($astrosJsonPath);
+  $astros_data = json_decode($astros_raw, true);
+
+  if (json_last_error() !== JSON_ERROR_NONE || !is_array($astros_data)) {
+    $open_notify_error = true;
+    error_log("astros.json: JSON invalide (" . json_last_error_msg() . ")");
+  } elseif (!isset($astros_data['message']) || $astros_data['message'] !== 'success') {
+    $open_notify_error = true;
+    error_log("astros.json: champ message absent ou != 'success'");
+  } else {
+    $astronautes = $astros_data['people'] ?? [];
+    $nombre_astronautes = $astros_data['number'] ?? count($astronautes);
+    $astros_updated = $astros_data['updated'] ?? null;
+  }
 }
 
 // Récupérer la liste unique des vaisseaux de Open Notify
@@ -213,12 +227,15 @@ $global_api_error = $n2yo_api_error || $open_notify_error || $n2yo_api_key_error
           <p style="color: orange; font-size: smaller;">Erreur lors de la récupération des données satellites via l'API N2YO.</p>
         <?php endif; ?>
         <?php if ($open_notify_error): ?>
-          <p style="color: orange; font-size: smaller;">Erreur lors de la récupération des données des astronautes via Open Notify.</p>
+          <p style="color: orange; font-size: smaller;">Erreur lors de la lecture du fichier local des astronautes (astros.json).</p>
         <?php endif; ?>
 
       <?php else: ?>
         <p><strong><?php echo htmlspecialchars($nombre_astronautes); ?></strong> astronautes en orbite</p>
         <p>Données mises à jour le : <strong><?php echo htmlspecialchars($date_fetched); ?></strong></p>
+        <?php if ($astros_updated): ?>
+          <p style="font-size: smaller; color: #888;">Liste des astronautes : maj manuelle au <?php echo htmlspecialchars($astros_updated); ?></p>
+        <?php endif; ?>
       <?php endif; ?>
     </header>
 
@@ -351,7 +368,7 @@ $global_api_error = $n2yo_api_error || $open_notify_error || $n2yo_api_key_error
     </div>     <br><hr>
 
     <footer>
-      <i>Les données à propos des astronautes sont issues du site : <a href="http://open-notify.org/" target="_blank">http://open-notify.org/</a></i><br>
+      <i>Liste des astronautes : maintenue manuellement (cf. README_astros.md). Sources de reference : <a href="https://www.nasa.gov/international-space-station/expedition-missions/" target="_blank">NASA Expeditions</a>, <a href="https://www.ariss.org/current-iss-crew.html" target="_blank">ARISS</a>, <a href="https://en.wikipedia.org/wiki/List_of_current_spaceflight_crew_members" target="_blank">Wikipedia</a>.</i><br>
       <i>Les données de suivi satellite sont issues du site : <a href="https://www.n2yo.com/" target="_blank">https://www.n2yo.com/</a></i><br>
       <i>With ❤️ par 👾 DeuZa 👾</i><br>
       <br>
