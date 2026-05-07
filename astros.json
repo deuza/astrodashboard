@@ -1,0 +1,21 @@
+{
+  "message": "success",
+  "number": 10,
+  "people": [
+    {"craft": "ISS", "name": "Sergey Kud-Sverchkov"},
+    {"craft": "ISS", "name": "Chris Williams"},
+    {"craft": "ISS", "name": "Sergey Mikaev"},
+    {"craft": "ISS", "name": "Jessica Meir"},
+    {"craft": "ISS", "name": "Jack Hathaway"},
+    {"craft": "ISS", "name": "Sophie Adenot"},
+    {"craft": "ISS", "name": "Andrey Fedyaev"},
+    {"craft": "Tiangong", "name": "Zhang Lu"},
+    {"craft": "Tiangong", "name": "Wu Fei"},
+    {"craft": "Tiangong", "name": "Zhang Hongzhang"}
+  ],
+  "updated": "2026-05-07",
+  "expeditions": {
+    "ISS": "Expedition 74 (depuis 8 decembre 2025, fin prevue ete 2026)",
+    "Tiangong": "Shenzhou-21 (depuis 31 octobre 2025, retour prevu mai-juin 2026 sur Shenzhou-22)"
+  }
+}
